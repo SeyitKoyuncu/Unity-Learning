@@ -7,7 +7,8 @@ public class PlayerController : MonoBehaviour
     public float horizontalInput, verticalInput;
     public float speed = 15;
     public float xRange = 10.0f, zRange = 10.0f;
-    public int score = 0;
+    static int score = 0;
+    static int life = 3;
 
 
     //you need to add this obejct to the prefab, if you try to add hieararchy object
@@ -47,5 +48,17 @@ public class PlayerController : MonoBehaviour
             //We create projectilePrefab in line 13 now we copy i
             Instantiate(projectilePrefab, transform.position, projectilePrefab.transform.rotation);
         }
+    }
+
+    static public int AddScore()
+    {
+        score++;
+        return score;
+    }
+
+    static public int DecreaseLife()
+    {
+        life--;
+        return life;
     }
 }

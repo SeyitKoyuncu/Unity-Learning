@@ -8,7 +8,7 @@ public class DestroyOutBound : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+        //player = GameObject.FindGameObjectWithTag("Player");
     }
 
     // Update is called once per frame
@@ -17,10 +17,12 @@ public class DestroyOutBound : MonoBehaviour
         if(transform.position.z > upperBound || transform.position.x > rightBound)
         {
             Destroy(gameObject);
+            if (PlayerController.DecreaseLife() <= 0) Debug.Log("Game Over");
         }
         else if(transform.position.z < lowerBound || transform.position.x < leftBound)
         {
             Destroy(gameObject);
+            if (PlayerController.DecreaseLife() <= 0) Debug.Log("Game Over");
         }
     }
 }

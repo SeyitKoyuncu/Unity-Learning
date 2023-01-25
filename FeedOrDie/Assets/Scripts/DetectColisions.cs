@@ -20,5 +20,7 @@ public class DetectColisions : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         Destroy(gameObject);
+        int score = PlayerController.AddScore();
+        Debug.Log($"Score = {score}");
     }
 }

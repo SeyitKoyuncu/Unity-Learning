@@ -6,6 +6,7 @@ public class PlayerController : MonoBehaviour
 {
     private Rigidbody playerRb;
     private Animator playerAnimation;
+    public ParticleSystem explosionParticle;
     public float jumForce = 25, gravityModifier;
     private bool isOnGround = true;
     public bool gameOver;
@@ -52,6 +53,8 @@ public class PlayerController : MonoBehaviour
             playerAnimation.SetTrigger("Death_b");
             //Choiced first death animation which activated with DeathType_int equal 1
             playerAnimation.SetInteger("DeathType_int", 1);
+            //Added particle system for death animation
+            explosionParticle.Play();
         }
     }
 }
